@@ -4,6 +4,15 @@ class Pawn < Piece
         super
         @start_pos = position
     end
+
+    def symbol
+        if self.color == :white
+            ♙
+        else
+            ♟︎
+        end
+    end
+
     private 
 
     def at_start_row?

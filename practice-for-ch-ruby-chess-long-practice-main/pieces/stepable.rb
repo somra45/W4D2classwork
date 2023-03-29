@@ -9,7 +9,7 @@ module Stepable
        end
        possible_moves.select! {|move| board.is_valid?(move)}
        possible_moves.select! do |move|
-        board[move] == NullPiece || board[move].color != self.color 
+            board[move] == NullPiece || board[move].color != self.color 
        end
        possible_moves  
     end

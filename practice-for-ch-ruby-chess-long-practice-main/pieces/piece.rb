@@ -1,3 +1,5 @@
+require_relative "board.rb"
+
 class Piece 
     attr_reader :color, :moves
     attr_accessor : position
@@ -11,6 +13,6 @@ class Piece
     end
 
     def valid_moves(pos)
-        
+
     end
 end
