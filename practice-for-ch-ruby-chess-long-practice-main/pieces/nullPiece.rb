@@ -1,7 +1,8 @@
-class NullPiece < Piece 
-    def initialize
-        @symbol = :symbol
-        @color = color
+require_relative "piece.rb"
+require "singleton"
 
-    end
+class NullPiece < Piece 
+
+    include Singleton
+
 end

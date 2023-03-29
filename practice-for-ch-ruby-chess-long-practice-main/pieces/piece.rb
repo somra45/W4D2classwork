@@ -1,13 +1,12 @@
-require_relative "board.rb"
 
 class Piece 
     attr_reader :color, :moves
-    attr_accessor : position
+    attr_accessor :position
 
 
     def initialize(color,board,position)
         @color = color
-        @board = board.grid
+        @board = board
         @position = position
         @moves = []
     end

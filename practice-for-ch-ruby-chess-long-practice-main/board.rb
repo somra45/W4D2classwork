@@ -1,24 +1,40 @@
-require_relative "piece"
+require_relative "pieces.rb"
 require "byebug"
+
 class Board
     attr_reader :grid
     def initialize
-        @grid = Array.new(8) {Array.new(8,nil)}
+        @grid = Array.new(8) {Array.new(8,NullPiece.instance)}
         i = 0
         while i < @grid.length
             j = 0
             while j < @grid.length 
-                if i == 0 || i == 1 
-                    @grid[i][j] = Piece.new(:white, grid, [i,j])
-                elsif i == 6 || i == 7 
-                    @grid[i][j] = Piece.new(:black, grid, [i,j])
-                else
-                    @grid[i][j] = NullPiece.new
+                if i == 1 
+                    @grid[i][j] = Pawn.new(:white, grid, [i,j])
+                elsif i == 6 
+                    @grid[i][j] = Pawn.new(:black, grid, [i,j])
                 end
                 j += 1
             end
             i += 1
         end
+        @grid[0][0] = Rook.new(:white, grid, [0,0])
+        @grid[0][1] = Knight.new(:white, grid, [0,1])
+        @grid[0][2] = Bishop.new(:white, grid, [0,2])
+        @grid[0][3] = Queen.new(:white, grid, [0,3])
+        @grid[0][4] = King.new(:white, grid, [0,4])
+        @grid[0][5] = Bishop.new(:white, grid, [0,5])
+        @grid[0][6] = Knight.new(:white, grid, [0,6])
+        @grid[0][7] = Rook.new(:white, grid, [0,7])
+
+        @grid[6][0] = Rook.new(:black, grid, [6,0])
+        @grid[6][1] = Knight.new(:black, grid, [6,1])
+        @grid[6][2] = Bishop.new(:black, grid, [6,2])
+        @grid[6][3] = Queen.new(:black, grid, [6,3])
+        @grid[6][4] = King.new(:black, grid, [6,4])
+        @grid[6][5] = Bishop.new(:black, grid, [6,5])
+        @grid[6][6] = Knight.new(:black, grid, [6,6])
+        @grid[6][7] = Rook.new(:black, grid, [6,7])
     end
 
     def [](pos)
@@ -35,7 +51,7 @@ class Board
         x,y = end_pos
         if !self[start_pos].nil? && is_valid?(end_pos)
             @grid[x][y] = self[start_pos]
-            self[start_pos] = NullPiece.new
+            self[start_pos] = NullPiece.instance
         else 
             raise "nil piece at position"
         end
