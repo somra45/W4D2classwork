@@ -9,4 +9,8 @@ class Piece
         @position = position
         @moves = []
     end
+
+    def valid_moves(pos)
+        
+    end
 end

@@ -46,6 +46,6 @@ class Board
         if x < 0 && x > 7 && y < 0 && y > 7
             return false
         end
-        return true
+        true
     end
 end

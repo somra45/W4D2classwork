@@ -39,5 +39,6 @@ class Pawn < Piece
             newArr << [x - 1, y + 1]
             newArr << [x - 1, y - 1]
         end
+        newArr
     end
 end
