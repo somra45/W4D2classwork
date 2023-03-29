@@ -1,3 +1,5 @@
+require_relative "nullPiece.rb"
+
 module Slideable
 
     HORIZONTAL_DIRS = [

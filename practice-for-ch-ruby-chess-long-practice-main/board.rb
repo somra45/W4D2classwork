@@ -27,14 +27,14 @@ class Board
         @grid[0][6] = Knight.new(:white, grid, [0,6])
         @grid[0][7] = Rook.new(:white, grid, [0,7])
 
-        @grid[6][0] = Rook.new(:black, grid, [6,0])
-        @grid[6][1] = Knight.new(:black, grid, [6,1])
-        @grid[6][2] = Bishop.new(:black, grid, [6,2])
-        @grid[6][3] = Queen.new(:black, grid, [6,3])
-        @grid[6][4] = King.new(:black, grid, [6,4])
-        @grid[6][5] = Bishop.new(:black, grid, [6,5])
-        @grid[6][6] = Knight.new(:black, grid, [6,6])
-        @grid[6][7] = Rook.new(:black, grid, [6,7])
+        @grid[7][0] = Rook.new(:black, grid, [7,0])
+        @grid[7][1] = Knight.new(:black, grid, [7,1])
+        @grid[7][2] = Bishop.new(:black, grid, [7,2])
+        @grid[7][3] = Queen.new(:black, grid, [7,3])
+        @grid[7][4] = King.new(:black, grid, [7,4])
+        @grid[7][5] = Bishop.new(:black, grid, [7,5])
+        @grid[7][6] = Knight.new(:black, grid, [7,6])
+        @grid[7][7] = Rook.new(:black, grid, [7,7])
     end
 
     def [](pos)
@@ -49,7 +49,7 @@ class Board
 
     def move_piece(color, start_pos,end_pos)
         x,y = end_pos
-        if !self[start_pos].nil? && is_valid?(end_pos)
+        if !self[start_pos].is_a?(NullPiece) && is_valid?(end_pos)
             @grid[x][y] = self[start_pos]
             self[start_pos] = NullPiece.instance
         else 
